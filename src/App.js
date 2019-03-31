@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Analysis from './components/Analysis';
+import Button from 'react-bootstrap/Button'
 
 class App extends Component {
     render() {
@@ -13,12 +14,14 @@ class App extends Component {
 
                 <Router>
                     <div>
-                        <input placeholder="Twitter URL or handle"/>
-                        <Link to="/analysis">
-                            <button>
-                                Analyze!
-                            </button>
-                        </Link>
+                        <div>
+                            <input placeholder="Twitter User ID"/>
+                            <Link to="/analysis">
+                                <Button>
+                                    Analyze!
+                                </Button>
+                            </Link>
+                        </div>
                         <Route
                             path="/analysis"
                             exact
