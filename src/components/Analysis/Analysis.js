@@ -1,5 +1,5 @@
 import React from 'react'
-import About from "../About/index";
+import About from "./About/index";
 import BotOrNot from "./BotOrNot/BotOrNot";
 import Tweets from "./Tweets/Tweets";
 import Container from "react-bootstrap/Container";
