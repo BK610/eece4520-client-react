@@ -9,20 +9,7 @@ export default class AnalysisContainer extends React.Component {
         this.userService = UserService.getInstance();
         this.botOrNotService = BotOrNotService.getInstance();
         this.state = {
-            user: {
-                name: "",
-                screenName: "",
-                statusesCount: 0,
-                followersCount: 0,
-                friendsCount: 0,
-                favouritesCount: 0,
-                url: "",
-                location: "",
-                geoEnabled: false,
-                profileImageUrl: "",
-                profileBackgroundImageUrl: "",
-                description: ""
-            },
+            user: {},
             score: 1,
             tweets: []
         }

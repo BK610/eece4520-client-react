@@ -1,9 +1,11 @@
 import React from "react";
 import Home from "./Home";
+import UserService from "../../services/UserService";
 
 export default class HomeContainer extends React.Component {
     constructor(props) {
         super(props);
+        this.userService = UserService.getInstance();
         this.state = {
             idValue: 0,
         };
@@ -21,11 +23,11 @@ export default class HomeContainer extends React.Component {
         if(!this.state.idValue || this.state.idValue <= 0) {
             alert("Enter a valid ID.");
         } else {
-            this.props.userService
+            this.userService
                 .checkUserExists(this.state.idValue)
                 .then(exists => {
                         if (exists) {
-                            window.location.href = "/analysis/"+ this.state.idValue;
+                            window.location.replace("/analysis/"+ this.state.idValue);
                         } else {
                             alert("User with ID " + this.state.idValue + " does not exist.");
                         }
