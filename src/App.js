@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import AnalysisContainer from './components/Analysis/index';
-import Button from 'react-bootstrap/Button';
+import HomeContainer from "./components/Home/index"
 import UserService from './services/UserService';
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 
 class App extends Component {
     constructor(props) {
@@ -15,66 +14,26 @@ class App extends Component {
             idValue: 0,
         };
 
-        this.handleIdChange = this.handleIdChange.bind(this);
-
-        this.handleSubmitUser = this.handleSubmitUser.bind(this);
+        this.redirect = this.redirect.bind(this);
     }
 
-    handleIdChange(event) {
-        this.setState({
-            idValue: event.target.value
-        })
-    }
-
-    handleSubmitUser(event) {
-        console.log(this.state.idValue);
-        this.setState({
-            selectedUser: []
-        });
-        this.userService
-            .checkUserExists(this.state.idValue)
-            .then(response => {
-                    //TODO: Handle response
-                    if(response.ok) {
-                        // Go to analysis page
-                    } else {
-                        // Alert that entered ID is invalid
-                    }
-                }
-            );
+    redirect(idValue) {
+        window.location.href = "/analysis/"+ idValue;
     }
 
     render() {
         return (
             <Container>
                 <Router>
-                    <h1>
-                        Bot or Not
-                    </h1>
-                    <Row>
-                        <div>
-                            <input id="idInput"
-                                   type="number"
-                                   value={this.state.idValue}
-                                   onChange={this.handleIdChange}
-                                   placeholder="Twitter User ID"/>
-                            <Link to="/analysis/"
-                                  idValue={this.state.idValue}
-                                  userService={this.userService}>
-                                <Button id="analyzeButton"
-                                        onClick={this.handleSubmitUser}>
-                                    Analyze!
-                                </Button>
-                            </Link>
-                        </div>
-                    </Row>
+                    <HomeContainer
+                        userService={this.userService}
+                        redirect={this.redirect}/>
                     <Route
-                        path="/analysis/"
-                        render={(props) =>
-                            <AnalysisContainer
-                                {...props}
-                                idValue={this.state.idValue}
-                                userService={this.userService}/>}/>
+                        path="/analysis/:idValue"
+                        exact
+                        render={(props) => (
+                            <AnalysisContainer {...props}/>
+                        )}/>
                 </Router>
             </Container>
         );

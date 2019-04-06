@@ -13,8 +13,7 @@ export default class UserService {
         fetch(this.baseUrl + userId)
             .then(response => response.json());
 
-    //TODO: Make this real!
     checkUserExists = userId =>
-        fetch(this.baseUrl + userId)
+        fetch(this.baseUrl + "exists/" + userId)
             .then(response => response.json());
 }
