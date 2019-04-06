@@ -2,12 +2,14 @@ import React from 'react';
 import Analysis from './Analysis';
 import BotOrNotService from "../../services/BotOrNotService";
 import UserService from "../../services/UserService";
+import TweetService from "../../services/TweetService";
 
 export default class AnalysisContainer extends React.Component {
     constructor(props) {
         super(props);
         this.userService = UserService.getInstance();
         this.botOrNotService = BotOrNotService.getInstance();
+        this.tweetService = TweetService.getInstance();
         this.state = {
             user: {},
             score: 1,
@@ -33,7 +35,8 @@ export default class AnalysisContainer extends React.Component {
                         .then(user =>
                             {this.setState({
                                 user: user
-                            })});
+                            })}
+                        );
                 }
             });
 
@@ -50,7 +53,13 @@ export default class AnalysisContainer extends React.Component {
     }
 
     handleFetchTweets() {
-
+        this.tweetService
+            .findTweetsByUserId(this.props.match.params.idValue)
+            .then(tweets =>
+                {this.setState({
+                    tweets: tweets
+                })}
+            );
     }
 
     render() {
