@@ -37,7 +37,6 @@ export default class HomeContainer extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
     }
 
     render() {
