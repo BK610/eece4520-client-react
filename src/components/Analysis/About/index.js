@@ -6,12 +6,6 @@ export default class AboutContainer extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-        console.log("About");
-        console.log(this.props);
-    }
-
-
     render() {
         const handlers = {
 

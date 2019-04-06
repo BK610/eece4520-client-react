@@ -12,7 +12,7 @@ export default class AnalysisContainer extends React.Component {
         this.tweetService = TweetService.getInstance();
         this.state = {
             user: {},
-            score: 1,
+            score: {},
             tweets: []
         }
     }
