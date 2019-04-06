@@ -19,7 +19,6 @@ export default class AnalysisContainer extends React.Component {
         this.handleFetchUser();
         this.handleFetchScore();
         this.handleFetchTweets();
-        console.log(this.props);
     }
 
     handleFetchUser() {
@@ -27,7 +26,7 @@ export default class AnalysisContainer extends React.Component {
             .checkUserExists(this.props.match.params.idValue)
             .then(exists => {
                 if(!exists) {
-                    this.props.history.push("/");
+                    window.location.replace("/");
                 } else {
                     this.userService
                         .findUserById(this.props.match.params.idValue)

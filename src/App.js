@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import AnalysisContainer from './components/Analysis/index';
-import HomeContainer from "./components/Home/index"
+import HomeContainer from "./components/Analysis/Home/index"
 import Container from "react-bootstrap/Container";
 
 class App extends Component {
