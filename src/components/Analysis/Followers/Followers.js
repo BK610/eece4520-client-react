@@ -5,6 +5,20 @@ import Row from "react-bootstrap/Row";
 export default function Followers(props) {
     return (
         <div>
+            <Row>
+                <Col>
+                    <h3>
+                        Screen Name
+                    </h3>
+                </Col>
+                <Col>
+                    <h3>
+                        Score
+                    </h3>
+                </Col>
+                <Col>
+                </Col>
+            </Row>
             {props.followers ?
                 props.followers
                     .map(follower =>
