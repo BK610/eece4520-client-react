@@ -6,36 +6,61 @@ export default function About(props) {
     return (
         <Row>
             <Col>
-                Profile image:
-                <div className=".profile-picture">
+                <b>
+                    Profile Image:
+                </b>
+                <div className="profile-picture-box">
                     <img
+                        className="profile-picture"
                         src={props.user.profileImageUrl}
+                        alt=""
                         onError={props.handleImageNotFound}/>
                 </div>
             </Col>
             <Col>
                 <div>
-                    name: {props.user.name}
+                    <b>
+                        Name:
+                    </b>
+                    {props.user.name}
                 </div>
                 <div>
-                    screenname: {props.user.screenName}
+                    <b>
+                        Screenname:
+                    </b>
+                    {props.user.screenName}
                 </div>
                 <div>
-                    location: {props.user.location}
+                    <b>
+                        Location:
+                    </b>
+                    {props.user.location}
                 </div>
             </Col>
             <Col>
                 <div>
-                    # tweets: {props.user.statusesCount}
+                    <b>
+                        Tweets:
+                    </b>
+                    {props.user.statusesCount}
                 </div>
                 <div>
-                    # followers: {props.user.followersCount}
+                    <b>
+                        Followers:
+                    </b>
+                    {props.user.followersCount}
                 </div>
                 <div>
-                    # following: {props.user.friendsCount}
+                    <b>
+                        Following:
+                    </b>
+                    {props.user.friendsCount}
                 </div>
                 <div>
-                    # favorites: {props.user.favouritesCount}
+                    <b>
+                        Favorites:
+                    </b>
+                    {props.user.favouritesCount}
                 </div>
             </Col>
         </Row>

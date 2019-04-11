@@ -1,0 +1,10 @@
+.profile-picture-box {
+    background-image: url("../../../data/DefaultPicture.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.profile-picture {
+    max-width: 150px;
+    max-height: 150px;
+}
