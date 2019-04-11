@@ -7,7 +7,7 @@ export default function About(props) {
         <Row>
             <Col>
                 <b>
-                    Profile Image:
+                    Profile Image:&nbsp;
                 </b>
                 <div className="profile-picture-box">
                     <img
@@ -20,19 +20,19 @@ export default function About(props) {
             <Col>
                 <div>
                     <b>
-                        Name:
+                        Name:&nbsp;
                     </b>
                     {props.user.name}
                 </div>
                 <div>
                     <b>
-                        Screenname:
+                        Screenname:&nbsp;
                     </b>
                     {props.user.screenName}
                 </div>
                 <div>
                     <b>
-                        Location:
+                        Location:&nbsp;
                     </b>
                     {props.user.location}
                 </div>
@@ -40,25 +40,25 @@ export default function About(props) {
             <Col>
                 <div>
                     <b>
-                        Tweets:
+                        Tweets:&nbsp;
                     </b>
                     {props.user.statusesCount}
                 </div>
                 <div>
                     <b>
-                        Followers:
+                        Followers:&nbsp;
                     </b>
                     {props.user.followersCount}
                 </div>
                 <div>
                     <b>
-                        Following:
+                        Following:&nbsp;
                     </b>
                     {props.user.friendsCount}
                 </div>
                 <div>
                     <b>
-                        Favorites:
+                        Favorites:&nbsp;
                     </b>
                     {props.user.favouritesCount}
                 </div>

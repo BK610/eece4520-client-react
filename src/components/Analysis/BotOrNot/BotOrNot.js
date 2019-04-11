@@ -8,7 +8,13 @@ export default function BotOrNot(props) {
             {props.score ?
                 <Row>
                     <Col>
-                        overallScore: {props.score.overallScore}
+                        <b>
+                            Overall Score:&nbsp;
+                        </b>
+                        {props.score.overallScore}
+                    </Col>
+                    <Col>
+
                     </Col>
                 </Row>
                 : null}
