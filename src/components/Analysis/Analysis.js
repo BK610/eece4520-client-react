@@ -15,7 +15,7 @@ export default function Analysis(props) {
                 <About user={props.user}/>
                 <hr/>
                 <h2>
-                    BotOrNot
+                    Analysis
                 </h2>
                 <BotOrNot score={props.score}/>
                 <hr/>
