@@ -69,7 +69,6 @@ export default class AnalysisContainer extends React.Component {
             .findAllUsers()
             .then(followers =>
             {
-                console.log(followers);
                 this.setState({
                     followers: followers
                 })
