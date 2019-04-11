@@ -32,7 +32,7 @@ export default function BotOrNot(props) {
                             <b>
                                 Average Score:&nbsp;
                             </b>
-                            {/*{props.score.averageScore}*/}
+                            {props.followerData.averageScore}
                         </div>
                         <div>
                             <b>

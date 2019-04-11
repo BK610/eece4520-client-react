@@ -25,7 +25,6 @@ export default class AnalysisContainer extends React.Component {
         this.handleFetchScore();
         this.handleFetchTweets();
         this.handleFetchFollowers();
-        // this.handleFetchFollowersScores();
     }
 
     handleFetchUser() {
@@ -84,8 +83,8 @@ export default class AnalysisContainer extends React.Component {
     }
 
     handleFetchFollowersScores() {
-        console.log("Fetching scores");
-        console.log(this.state);
+        // console.log("Fetching scores");
+        // console.log(this.state);
         // this.state.followers.forEach(function(follower) {
         //     console.log(follower);
         //     follower["score"] = this.state.followerScores.find(item => item.id === follower.id);
