@@ -21,6 +21,10 @@ export default class BotOrNotContainer extends React.Component {
 
     calculateScores() {
         this.calculateAverageScore();
+        this.calculatePercentBots();
+        this.calculateNumberBots();
+        this.findMostLikelyBot();
+        this.findLeastLikelyBot();
     }
 
     calculateAverageScore() {
@@ -34,10 +38,30 @@ export default class BotOrNotContainer extends React.Component {
         });
     }
 
+    calculatePercentBots() {
+
+    }
+
+    calculateNumberBots() {
+
+    }
+
+    findMostLikelyBot() {
+
+    }
+
+    findLeastLikelyBot() {
+        
+    }
+
     render() {
         const handlers = {
             calculateScores: this.calculateScores,
-            calculateAverageScore: this.calculateAverageScore
+            calculateAverageScore: this.calculateAverageScore,
+            calculatePercentBots: this.calculatePercentBots,
+            calculateNumberBots: this.calculateNumberBots,
+            findMostLikelyBot: this.findMostLikelyBot,
+            findLeastLikelyBot: this.findLeastLikelyBot
         };
 
         return <BotOrNot {...Object.assign(handlers, this.props)} followerData={this.state}/>;
