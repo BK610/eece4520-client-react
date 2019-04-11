@@ -38,25 +38,25 @@ export default function BotOrNot(props) {
                             <b>
                                 Percent Bots:&nbsp;
                             </b>
-                            {/*{props.score.averageScore}*/}%
+                            {props.followerData.percentBots}%
                         </div>
                         <div>
                             <b>
                                 Number Bots:&nbsp;
                             </b>
-                            {/*{props.score.averageScore}*/}
+                            {props.followerData.numberBots}
                         </div>
                         <div>
                             <b>
                                 Highest Score:&nbsp;
                             </b>
-                            {/*{props.score.averageScore}*/}
+                            {props.followerData.mostLikelyBot}
                         </div>
                         <div>
                             <b>
                                 Lowest Score:&nbsp;
                             </b>
-                            {/*{props.score.averageScore}*/}
+                            {props.followerData.leastLikelyBot}
                         </div>
                     </Col>
                 </Row>

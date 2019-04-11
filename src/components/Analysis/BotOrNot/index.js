@@ -8,8 +8,8 @@ export default class BotOrNotContainer extends React.Component {
             averageScore: 0,
             percentBots: 0,
             numberBots: 0,
-            mostLikelyBot: "",
-            leastLikelyBot: ""
+            mostLikelyBot: 0,
+            leastLikelyBot: 0
         }
     }
 
@@ -22,7 +22,6 @@ export default class BotOrNotContainer extends React.Component {
     calculateScores() {
         this.calculateAverageScore();
         this.calculatePercentBots();
-        this.calculateNumberBots();
         this.findMostLikelyBot();
         this.findLeastLikelyBot();
     }
@@ -39,19 +38,34 @@ export default class BotOrNotContainer extends React.Component {
     }
 
     calculatePercentBots() {
+        let numBots = 0;
+        this.props.followers.forEach(function(follower) {
+            if(follower.score >= 3) {
+                numBots++;
+            }
+        });
+        this.setState({
+            numberBots: numBots
+        });
 
-    }
-
-    calculateNumberBots() {
-
+        const calculatedPercentage = numBots / this.props.followers.length;
+        this.setState({
+            percentBots: calculatedPercentage
+        });
     }
 
     findMostLikelyBot() {
-
-    }
+        const mostLikelyBot = Math.max.apply(Math, this.props.followers.map(function(follower) {return follower.score}));
+        this.setState({
+            mostLikelyBot: mostLikelyBot
+        });
+    };
 
     findLeastLikelyBot() {
-        
+        const leastLikelyBot = Math.min.apply(Math, this.props.followers.map(function(follower) {return follower.score}));
+        this.setState({
+            leastLikelyBot: leastLikelyBot
+        });
     }
 
     render() {
@@ -59,7 +73,6 @@ export default class BotOrNotContainer extends React.Component {
             calculateScores: this.calculateScores,
             calculateAverageScore: this.calculateAverageScore,
             calculatePercentBots: this.calculatePercentBots,
-            calculateNumberBots: this.calculateNumberBots,
             findMostLikelyBot: this.findMostLikelyBot,
             findLeastLikelyBot: this.findLeastLikelyBot
         };
