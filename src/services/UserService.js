@@ -16,4 +16,8 @@ export default class UserService {
     checkUserExists = userId =>
         fetch(this.baseUrl + "exists/" + userId)
             .then(response => response.json());
+
+    findAllUsers = () =>
+        fetch(this.baseUrl)
+            .then(response => response.json());
 }

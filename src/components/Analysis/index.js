@@ -13,7 +13,8 @@ export default class AnalysisContainer extends React.Component {
         this.state = {
             user: {},
             score: {},
-            tweets: []
+            tweets: [],
+            followers: []
         }
     }
 
@@ -21,6 +22,7 @@ export default class AnalysisContainer extends React.Component {
         this.handleFetchUser();
         this.handleFetchScore();
         this.handleFetchTweets();
+        this.handleFetchFollowers();
     }
 
     handleFetchUser() {
@@ -62,11 +64,24 @@ export default class AnalysisContainer extends React.Component {
             );
     }
 
+    handleFetchFollowers() {
+        this.userService
+            .findAllUsers()
+            .then(followers =>
+            {
+                console.log(followers);
+                this.setState({
+                    followers: followers
+                })
+            })
+    }
+
     render() {
         const handlers = {
             handleFetchUser: this.handleFetchUser,
             handleFetchScore: this.handleFetchScore,
-            handleFetchTweets: this.handleFetchTweets
+            handleFetchTweets: this.handleFetchTweets,
+            handleFetchFollowers: this.handleFetchFollowers
         };
 
         return <Analysis {...Object.assign(handlers, this.state)} />
