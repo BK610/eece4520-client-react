@@ -3,6 +3,7 @@ import Analysis from './Analysis';
 import BotOrNotService from "../../services/BotOrNotService";
 import UserService from "../../services/UserService";
 import TweetService from "../../services/TweetService";
+import MockFollowerScores from "../../data/MockFollowerScores";
 
 export default class AnalysisContainer extends React.Component {
     constructor(props) {
@@ -14,7 +15,8 @@ export default class AnalysisContainer extends React.Component {
             user: {},
             score: {},
             tweets: [],
-            followers: []
+            followers: [],
+            followerScores: MockFollowerScores
         }
     }
 
@@ -23,6 +25,7 @@ export default class AnalysisContainer extends React.Component {
         this.handleFetchScore();
         this.handleFetchTweets();
         this.handleFetchFollowers();
+        // this.handleFetchFollowersScores();
     }
 
     handleFetchUser() {
@@ -65,14 +68,51 @@ export default class AnalysisContainer extends React.Component {
     }
 
     handleFetchFollowers() {
+        console.log("Fetching followers");
         this.userService
             .findAllUsers()
             .then(followers =>
             {
+                followers.forEach(function(follower) {
+                    follower["score"] = 1;
+                    // follower["score"] = this.state.followerScores.find(item => item.id === follower.id).score;
+                });
                 this.setState({
                     followers: followers
-                })
+                }, () => this.handleFetchFollowersScores());
             })
+    }
+
+    handleFetchFollowersScores() {
+        console.log("Fetching scores");
+        console.log(this.state);
+        // this.state.followers.forEach(function(follower) {
+        //     console.log(follower);
+        //     follower["score"] = this.state.followerScores.find(item => item.id === follower.id);
+        // });
+
+        // for (let follower in this.state.followers) {
+        //     console.log(follower);
+        //     this.botOrNotService
+        //         .getBotOrNotScoreById(follower.id)
+        //         .then(score => {
+        //             const newScores = this.state.followerScores.concat({
+        //                 id: follower.id,
+        //                 score: score
+        //             });
+        //             this.setState({
+        //                 followerScores: newScores
+        //             })
+        //         })
+        // }
+        // console.log(this.state.followerScores);
+        // console.log(this.state.followerScores);
+        // console.log(this.state.followers);
+        // const scoresWrapper = {"scores": this.state.followerScores};
+        // for (let follower in this.state.followers) {
+        //     follower["score"] = scoresWrapper.find(id => id === follower.id);
+        // }
+        // console.log(this.state.followers);
     }
 
     render() {
@@ -80,7 +120,8 @@ export default class AnalysisContainer extends React.Component {
             handleFetchUser: this.handleFetchUser,
             handleFetchScore: this.handleFetchScore,
             handleFetchTweets: this.handleFetchTweets,
-            handleFetchFollowers: this.handleFetchFollowers
+            handleFetchFollowers: this.handleFetchFollowers,
+            handleFetchFollowersScores: this.handleFetchFollowersScores
         };
 
         return <Analysis {...Object.assign(handlers, this.state)} />

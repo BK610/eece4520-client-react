@@ -1,6 +1,7 @@
 import React from 'react';
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
 
 export default function Followers(props) {
     return (
@@ -30,7 +31,9 @@ export default function Followers(props) {
                                 {follower.overallScore}
                             </Col>
                             <Col>
-                                ~Analyze Button~
+                                <Button variant="secondary">
+                                    Analyze
+                                </Button>
                             </Col>
                         </Row>
                     )
