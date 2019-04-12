@@ -28,7 +28,7 @@ export default function Followers(props) {
                                 {follower.screenName}
                             </Col>
                             <Col>
-                                {follower.overallScore}
+                                {follower.score}
                             </Col>
                             <Col>
                                 <Button variant="secondary">

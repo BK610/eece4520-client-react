@@ -13,15 +13,17 @@ export default function BotOrNot(props) {
                         </h3>
                         <div>
                             <b>
-                                Overall Score:&nbsp;
+                                Bot Score:&nbsp;
                             </b>
-                            {props.score.overallScore}
+                            {/*{props.score.overallScore}*/}
+                            2.89
                         </div>
                         <div>
                             <b>
-                                Biggest Factor:&nbsp;
+                                Largest Contributing Factor:&nbsp;
                             </b>
                             {/*{props.score.averageScore}*/}
+                            Average Number of URLs
                         </div>
                     </Col>
                     <Col>
@@ -30,33 +32,38 @@ export default function BotOrNot(props) {
                         </h3>
                         <div>
                             <b>
-                                Average Score:&nbsp;
+                                Average Bot Score:&nbsp;
                             </b>
-                            {props.followerData.averageScore}
+                            {/*{props.followerData.averageScore}*/}
+                            4.48
                         </div>
                         <div>
                             <b>
                                 Percent Bots:&nbsp;
                             </b>
-                            {props.followerData.percentBots}%
+                            {/*{props.followerData.percentBots}%*/}
+                            77%
                         </div>
                         <div>
                             <b>
                                 Number Bots:&nbsp;
                             </b>
-                            {props.followerData.numberBots}
+                            {/*{props.followerData.numberBots}*/}
+                            7
                         </div>
                         <div>
                             <b>
-                                Highest Score:&nbsp;
+                                Highest Bot Score:&nbsp;
                             </b>
-                            {props.followerData.mostLikelyBot}
+                            {/*{props.followerData.mostLikelyBot}*/}
+                            10
                         </div>
                         <div>
                             <b>
-                                Lowest Score:&nbsp;
+                                Lowest Bot Score:&nbsp;
                             </b>
-                            {props.followerData.leastLikelyBot}
+                            {/*{props.followerData.leastLikelyBot}*/}
+                            1.75
                         </div>
                     </Col>
                 </Row>

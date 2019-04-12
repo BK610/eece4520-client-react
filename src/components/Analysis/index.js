@@ -73,11 +73,11 @@ export default class AnalysisContainer extends React.Component {
             .then(followers =>
             {
                 followers.forEach(function(follower) {
-                    follower["score"] = 1;
+                    follower["score"] = (Math.random() * 10).toPrecision(3);
                     // follower["score"] = this.state.followerScores.find(item => item.id === follower.id).score;
                 });
                 this.setState({
-                    followers: followers
+                    followers: followers.slice(1)
                 }, () => this.handleFetchFollowersScores());
             })
     }
