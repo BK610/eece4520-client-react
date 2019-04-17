@@ -16,10 +16,11 @@ export default class AnalysisContainer extends React.Component {
             score: {},
             tweets: [],
             followers: [],
-            followerScores: [{
-                userHandle: "handle!",
-                overallScore: 5
-            },
+            followerScores: [
+                {
+                    userHandle: "handle!",
+                    overallScore: 5
+                },
                 {
                     userHandle: "handl2",
                     overallScore: 6.12

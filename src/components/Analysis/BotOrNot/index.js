@@ -35,7 +35,7 @@ export default class BotOrNotContainer extends React.Component {
         this.props.followers.forEach(function(follower) {
             totalScore += follower.overallScore;
         });
-        const calculatedAverage = totalScore / this.props.followers.length;
+        const calculatedAverage = (totalScore / this.props.followers.length).toPrecision(3);
         this.setState({
             averageScore: calculatedAverage
         });
@@ -52,7 +52,7 @@ export default class BotOrNotContainer extends React.Component {
             numberBots: numBots
         });
 
-        const calculatedPercentage = numBots / this.props.followers.length;
+        const calculatedPercentage = (numBots / this.props.followers.length).toPrecision(3);
         this.setState({
             percentBots: calculatedPercentage
         });
