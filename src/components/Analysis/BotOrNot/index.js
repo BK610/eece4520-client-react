@@ -52,7 +52,7 @@ export default class BotOrNotContainer extends React.Component {
             numberBots: numBots
         });
 
-        const calculatedPercentage = (numBots / this.props.followers.length).toPrecision(3);
+        const calculatedPercentage = ((numBots / this.props.followers.length) * 100).toPrecision(3);
         this.setState({
             percentBots: calculatedPercentage
         });
