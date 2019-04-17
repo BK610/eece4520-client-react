@@ -70,7 +70,6 @@ export default class BotOrNotContainer extends React.Component {
         this.setState({
             leastLikelyBot: leastLikelyBot
         });
-        console.log(leastLikelyBot);
     }
 
     render() {
