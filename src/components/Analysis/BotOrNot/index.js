@@ -13,6 +13,10 @@ export default class BotOrNotContainer extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.calculateScores();
+    }
+
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(prevProps !== this.props) {
             this.calculateScores();
@@ -29,7 +33,7 @@ export default class BotOrNotContainer extends React.Component {
     calculateAverageScore() {
         let totalScore = 0;
         this.props.followers.forEach(function(follower) {
-            totalScore += follower.score;
+            totalScore += follower.overallScore;
         });
         const calculatedAverage = totalScore / this.props.followers.length;
         this.setState({
@@ -40,7 +44,7 @@ export default class BotOrNotContainer extends React.Component {
     calculatePercentBots() {
         let numBots = 0;
         this.props.followers.forEach(function(follower) {
-            if(follower.score >= 3) {
+            if(follower.overallScore >= 3) {
                 numBots++;
             }
         });
@@ -55,17 +59,18 @@ export default class BotOrNotContainer extends React.Component {
     }
 
     findMostLikelyBot() {
-        const mostLikelyBot = Math.max.apply(Math, this.props.followers.map(function(follower) {return follower.score}));
+        const mostLikelyBot = Math.max.apply(Math, this.props.followers.map(function(follower) {return follower.overallScore}));
         this.setState({
             mostLikelyBot: mostLikelyBot
         });
     };
 
     findLeastLikelyBot() {
-        const leastLikelyBot = Math.min.apply(Math, this.props.followers.map(function(follower) {return follower.score}));
+        const leastLikelyBot = Math.min.apply(Math, this.props.followers.map(function(follower) {return follower.overallScore}));
         this.setState({
             leastLikelyBot: leastLikelyBot
         });
+        console.log(leastLikelyBot);
     }
 
     render() {
