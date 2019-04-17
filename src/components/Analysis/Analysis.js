@@ -17,7 +17,7 @@ export default function Analysis(props) {
                 <h2>
                     Analysis
                 </h2>
-                <BotOrNot score={props.score} followers={props.followers}/>
+                <BotOrNot score={props.score} followers={props.followerScores}/>
                 <hr/>
                 <h2>
                     Tweets
@@ -27,7 +27,7 @@ export default function Analysis(props) {
                 <h2>
                     Followers
                 </h2>
-                <Followers followers={props.followers}/>
+                <Followers followers={props.followerScores}/>
             </Container>
         </div>
     )

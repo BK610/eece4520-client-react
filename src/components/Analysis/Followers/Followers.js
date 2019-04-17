@@ -23,12 +23,12 @@ export default function Followers(props) {
             {props.followers ?
                 props.followers
                     .map(follower =>
-                        <Row key={follower.id}>
+                        <Row>
                             <Col>
-                                {follower.screenName}
+                                {follower.userHandle}
                             </Col>
                             <Col>
-                                {follower.score}
+                                {follower.overallScore}
                             </Col>
                             <Col>
                                 <Button variant="secondary">
