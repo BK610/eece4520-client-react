@@ -15,7 +15,7 @@ export default function BotOrNot(props) {
                             <b>
                                 Bot Score:&nbsp;
                             </b>
-                            {props.score.score}
+                            {props.score.overallScore}
                         </div>
                         <div>
                             <b>
