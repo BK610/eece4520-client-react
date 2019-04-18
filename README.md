@@ -1,3 +1,15 @@
+# Bot or Not
+
+This repository contains all client-side code for Bot or Not. For server-side, check out [https://github.com/BK610/eece4520-server-java](http://eece4520-client-react.herokuapp.com).
+
+## To Use
+
+Open the latest deployed version of Bot or Not at [http://eece4520-client-react.herokuapp.com](http://eece4520-client-react.herokuapp.com).
+
+The input box accepts number values, and will display an account analysis once a valid ID for an existing user is input. As a sample value, try **7248952**.
+
+# React
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
