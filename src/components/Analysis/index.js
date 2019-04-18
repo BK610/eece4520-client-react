@@ -66,15 +66,10 @@ export default class AnalysisContainer extends React.Component {
     }
 
     handleFetchFollowers() {
-        console.log("Fetching followers");
         this.userService
             .findAllUsers()
             .then(followers =>
             {
-                followers.forEach(function(follower) {
-                    follower["score"] = (Math.random() * 10).toPrecision(3);
-                    // follower["score"] = this.state.followerScores.find(item => item.id === follower.id).score;
-                });
                 this.setState({
                     followers: followers.slice(1)
                 }, () => this.handleFetchFollowersScores(followers));
@@ -82,12 +77,6 @@ export default class AnalysisContainer extends React.Component {
     }
 
     handleFetchFollowersScores(followers) {
-        console.log("Fetching scores");
-        // this.state.followers.forEach(function(follower) {
-        //     console.log(follower);
-        //     follower["score"] = this.state.followerScores.find(item => item.id === follower.id);
-        // });
-
         followers.forEach((follower) => {
                 this.botOrNotService
                     .getBotOrNotScoreById(follower.id)
@@ -97,14 +86,11 @@ export default class AnalysisContainer extends React.Component {
                             userHandle: score.userHandle,
                             overallScore: score.overallScore
                         });
-                        console.log(newScores);
                         this.setState({
                             followerScores: newScores
                         });
                     })
             });
-
-        console.log(this.state.followerScores);
     }
 
     render() {
